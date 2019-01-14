@@ -85,6 +85,19 @@ git push
 ```
 Co one robią? Git fetch pobiera nam informacje o zmianach, które zaszły w naszym zdalnym repozytorium, a więc po prostu wszystkie commity, które zostały na niego wrzucone przez innych ludzi. Git pull działa podobnie jak fetch, jednak dodatkowo aplikuje zmiany, które się tam znajdują, do naszego lokalnego repozytorium. W dalszej częsci opracowania opowiem, dlaczego zalecam używac go z flagą --rebase. Ostatni jest git push - tak jak git pull aplikuje zdalne commity do naszego repozytorium, tak git pull aplikuje commity z naszego lokalnego repozytorium do repozytorium zdalnego. Należy pamiętac, że przed zrobieniem push MUSIMY zrobic pull, inaczej git nie będzie potrafił zaaplikowac naszych zmian na zdalne repozytorium, bo nie będzie wiedział, co z nimi zrobic. To my, robiąc pull --rebase, mówimy mu, że nasze zmiany znajdują się tuż po tych, które już tam, a następnie wysyłamy nasze lokalne zmiany za pomocą push.
 
+Tak więc prawie jestesmy w domu - aby wykonac nasz pierwszy commit używamy komendy 
+```
+git push -u origin master
+```
+Dlaczego tak? Ponieważ nasze zmiany znajdują się aktualnie w branchu master w naszym lokalnym repozytorium (więcej o gałęziach będzie za chwilę). Git w momencie, w którym dodajemy do istniejącego lokalnego repozytorium origin, nie wie, jakie branche odpowiadają jakim branchom. Tak więc komenda, której teraz użylismy, mówi mu, że nasz lokalny master ma byc synchronizowany z masterem na zdalnym repozytorium.
+
+### No dobrze, ale
+Co, jesli dostajemy zdalne repozytorium z już wrzuconym jakims kodem? Jak to pobrac? Do pobrania istniejącego repozytorium służy komenda
+```
+git clone https://github.com/KNKredek/GitIsGit.git
+```
+Stworzy nam ona lokalnie folder, zainicjalizuje w nim gita oraz automatycznie ustawi naszego mastera na synchronizowanie z masterem ze zdalnego repozytorium. Oczywiscie do tak sklonowanego repozytorium również możemy zmienic remote oraz robic wszystko, co robilismy do tej pory ;>
+
 ## Gitignore
 Zdarza się, iż w naszym repozytorium znajdują się pliki, których nie chcemy wrzucac na zdalne repozytorium. Zazwyczaj takimi plikami są pliki wyjsciowe naszego programu, lokalne ustawienia visual studio lub pobrane paczki nuget. Aby powiedziec naszemu gitowi, iż te konkretnie foldery i pliki mają zostac przez niego pominięte, musimy stworzyc w naszym repozytorium plik o nazwie .gitignore. Jest to zwykły plik tekstowy, w którym wpisujemy nazwy plików oraz folderów, które chcemy pominąc. W pliku .gitignore w tym repozytorium znajdują się przykładowy plik oraz folder. Należy zauważyc, iż przykładowy plik jest z gwiazdką. Dlaczego? Ponieważ chcemy, aby każdy plik z tą nazwą, niezależnie od rozszerzenia, był ignorowany
 
