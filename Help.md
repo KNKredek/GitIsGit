@@ -134,6 +134,7 @@ Co zrobic, jesli w naszym repozytorium już zostały zacommitowane i spushowane 
 
 ## Branche
 Czym są branche? Można je porównac do różnych scieżek rozwoju naszego repozytorium. Są one od siebie wzajemnie niezależnie (przynajmniej do czasu połączenia). W każdym repozytorium znajduje się branch o nazwie master. Jest to główna scieżka rozwoju, którą posiada każde repozytorium. W momencie stworzenia nowego brancha nasz kod dzielimy na dwie (w tym przypadku) wersje, które możemy rozwijac niezależnie od siebie:
+
 ![branching](./branching.png)
 
 Lewa gałąź powyższego drzewa to nasz master - wrzucamy sobie na niego commity, żyje sobie. Prawa gałąź to z kolei branch, którego stworzylismy - na niego również wrzucamy commity, jednak ani master, ani nasz nowy branch nie widzą zmian na drugim branchu. Dzięki temu możemy utrzymywac dwie, zupełnie różne wersje tego samego kodu oraz rozwijac w jednym projekcie dwie zupełnie nowe funkcjolanosci, nie przeszkadzając sobie wzajemnie w pracy.
@@ -171,6 +172,7 @@ Mamy już dwa branche. Co możemy teraz z nimi zrobic? POŁĄCZYC. I do tego wł
 
 ### Merge
 Merge jest to operacja połączenia dwóch branchy z zachowaniem ich historii. Można to porównac do połączenia się dwóch dróg - od pewnego momentu po prostu nasz kod jedzie jedną, która jest dalej rozwijana. Posiłkując się przykładem z rozdziału o branchach merge naszego nowego brancha do mastera wygląda tak:
+
 ![merge](./merge.png)
 
 Tak więc wszystkie zmiany, jakie zostały naniesione na nasz kod w nowym branchu i w masterze zostały scalone - zachowalismy obie wersje, jednak dalej będziemy pracowac już na masterze. Oczywiscie nic nie stoi na przeszkodzie, aby dalej pracowac na nowym branchu oraz robic kolejne merge do mastera ;>
@@ -187,9 +189,11 @@ która zrobi merge brancha, którego nazwę podajemy do brancha, w którym się 
 
 ### Rebase
 Rebase, w przeciwieństwie do merge, scala nam nie tylko kod, lecz również historię commitów. Tak więc nasze dwa branche, które wyglądały tak:
+
 ![branching](./branching.png)
 
 teraz będą wyglądały tak:
+
 ![rebase](./rebase.png)
 
 Aby wykonac rebase brancha, na którym aktualnie się znajdujemy, z branchem, który został stworzony, musimy przełączyc sie na naszego brancha (w tym przypadku master)
@@ -203,6 +207,7 @@ git rebase <branch name>
 która zrobi rebase brancha, w którym się aktualnie znajdujemy (w tym przypadku master) na branchu, którego podamy. Historia zmian z tamtego brancha zostanie scalona z naszą.
 
 Pamiętacie git pull --rebase? Czym jest git pull - git pull jest to komenda, która, aby pobrac zmiany ze zdalnego repozytorium najpierw wykonuje git fetch, a następnie wykonuje merge naszych zmian do brancha, w którym się znajdujemy. wykonując często pull mamy taką oto sytuację:
+
 ![pull](./pull.png)
 
 Aby tego uniknąc zalecam stosowanie komendy git pull --rebase - dzięki temu pull zamiast merge robi rebase, zachowując nasze "drzewko" w dosyc prostym stanie.
@@ -241,4 +246,5 @@ Mamy dwa główne branche - dev(elop) oraz master. Programisci tworzący nowe fu
 
 ### Trunk Based Development (tbd)
 ![trunk based development](./tbd.jpg)
+
 Tutaj mamy dwa branche - master oraz release. Zasada jest prosta - wychodzimy nowym feature z mastera, po skończeniu kodowania robimy merge do mastera, następnie robimy merge mastera do release. Kod z release, po udanych testach, trafia na produkcję. Hotfixy tworzone są z brancha release, następnie mergeowane z branchem master oraz release.
