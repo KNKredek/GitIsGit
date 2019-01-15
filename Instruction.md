@@ -60,7 +60,8 @@ git rebase master
 Tworzymy z naszego aktualnego mastera brancha feature2. Również zmieniamy plik file.txt (inaczej niż nasz kolega dev). Następnie przełączamy się na naszego brancha master i robimy merge naszego nowego brancha feature2 do mastera. Pushujemy na zdalne repozytorium.
 ```
 git checkout -b feature2
-git add file.txt "Also edited file"
+git add file.txt 
+git commit -m "Also edited file"
 git checkout master
 git merge --commit feature2
 git push 
