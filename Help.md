@@ -126,6 +126,16 @@ Stworzy nam ona lokalnie folder, zainicjalizuje w nim gita oraz automatycznie us
 ### No dobrze, alex2
 Co, jesli zacommitowałem i spushowałem jakies zmiany, a teraz chciałbym je cofnąc?
 
+Takiego commita najlepiej "zrevertowac". Rever to operacja, która służy do cofania zmian wprowadzonych w commicie. Aby ją wykonac za pomocą komendy 
+```
+git log
+```
+szukamy nazwy naszego commita. Następnie komendą 
+```
+git revert <commit name>
+```
+robimy revert. Po zatwierdzeniu wiadomosci w naszym commicie zamykamy edytor tekstowy. Zmiana zostanie automatycznie zacommitowana.
+
 ## Gitignore
 Zdarza się, iż w naszym repozytorium znajdują się pliki, których nie chcemy wrzucac na zdalne repozytorium. Zazwyczaj takimi plikami są pliki wyjsciowe naszego programu, lokalne ustawienia visual studio lub pobrane paczki nuget. Aby powiedziec naszemu gitowi, iż te konkretnie foldery i pliki mają zostac przez niego pominięte, musimy stworzyc w naszym repozytorium plik o nazwie .gitignore. Jest to zwykły plik tekstowy, w którym wpisujemy nazwy plików oraz folderów, które chcemy pominąc. W pliku .gitignore w tym repozytorium znajdują się przykładowy plik oraz folder. Należy zauważyc, iż przykładowy plik jest z gwiazdką. Dlaczego? Ponieważ chcemy, aby każdy plik z tą nazwą, niezależnie od rozszerzenia, był ignorowany
 
