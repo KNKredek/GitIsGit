@@ -72,6 +72,7 @@ Zaczynamy zabawę. W tym momencie nasz kolega Dev0 zrobił merge ze zmianami w t
 git checkout master
 git pull --rebase
 git merge --commit feature1
+git add .
 git merge --continue
 git push
 ```

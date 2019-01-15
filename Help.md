@@ -226,6 +226,10 @@ W tym momencie jedyne, co należy zrobić, to usunąc oznaczenie i stworzyc wers
 ```
 wersja linijki, którą chcemy pozostawić
 ```
+Po wprowadzeniu naszych zmian odpalamy komendę
+```
+git add .
+```
 W tym momencie możemy kontynuować nasz merge/rebase za pomocą komendy
 ```
 git merge --continue
